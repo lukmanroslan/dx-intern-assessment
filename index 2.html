@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <title>Digi-X Assessment</title>
+</head>
+<body>
+    <div class='container' style = 'max-width: 80%;'>
+        <div class='row' style='align-items: center; justify-content: center;'>
+            <h1>Weight Converter App</h1>
+        </div>
+        <div class='row d-flex justify-content-center flex-grow-1' style='padding: 10px'>
+            <div class="col d-flex justify-content-center align-items-center">
+                <input type="number" id='weightInKG' step="0.01" ></input>
+                <h2 style="padding: 10px;">KG</h2>
+            </div>
+        </div>
+        <div class = 'row d-flex justify-content-center' style='padding: 10px'>
+            <div style="padding: 10px;">
+                <button type='button' class='btn btn-primary btn-block' id='resetBtn' onclick='convert()'> Convert </button>
+            </div>
+            <div style="padding: 10px;">
+                <button type='button' class='btn btn-primary btn-block' id='resetBtn' onclick='reset()'> Reset </button>
+            </div>
+        </div>
+        <div class = 'row d-flex justify-content-center align-items-center'>
+            <div class="col d-flex justify-content-center align-items-center">
+                <h1 id='weightInPound'>0</h1>
+                <h2 style="padding: 10px;">Pound</h2>
+            </div>
+        </div>
+        <div class = 'row d-flex justify-content-center align-items-center'>
+            <div class="col d-flex justify-content-center align-items-center">
+                <h1 id='weightInMilligram'>0</h1>
+                <h2 style="padding: 10px;">MilliGram</h2>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+
+    function convert(){
+        KGvalue = document.getElementById("weightInKG").value;
+        PoundValue = KGvalue*2.205;
+        MiligramValue = KGvalue*1000000;
+        PoundValue = Math.round(PoundValue * 100) / 100
+        MiligramValue = Math.round(MiligramValue * 100) / 100
+        document.getElementById("weightInPound").innerHTML = PoundValue;
+        document.getElementById("weightInMilligram").innerHTML = MiligramValue;
+    }
+    function reset(){
+        resetValue = 0
+        document.getElementById("weightInPound").innerHTML = resetValue;
+        document.getElementById("weightInMilligram").innerHTML = resetValue;
+        document.getElementById("weightInKG").value = '';
+    }
+
+</script>
+</html>
